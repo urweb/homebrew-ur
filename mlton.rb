@@ -34,9 +34,7 @@ class Mlton < Formula
       mv "man", "share"
 
       # Fix libgmp reference in mlton
-      puts "WD: " + Dir.pwd
       file_name = Dir.pwd + "/bin/mlton"
-      puts "file name: " + file_name
       text = File.read(file_name)
       new_contents = text.gsub(/lm \/opt\/local/, "lm /usr/local")
       File.open(file_name, "w") {|file| file.puts new_contents }
