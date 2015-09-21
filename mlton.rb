@@ -18,9 +18,11 @@ class StandardHomebrewLocation < Requirement
 end
 
 class Mlton < Formula
+  desc "MLton is an open-source, whole-program, optimizing Standard ML compiler."
   homepage 'http://mlton.org'
-  url 'https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715-1.amd64-darwin.gmp-static.tgz'
-  sha1 'b3b13e0a606bf42d62d4d028687336106ada160a'
+  url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715-1.amd64-darwin.gmp-macports.tgz"
+  version "20130715"
+  sha256 "a9bfff3bc5a793e84306f98cd60f195a8139902900f96e1072d13c0813b49c10"
 
   # We download and install the version of MLton which is statically linked to libgmp, but all
   # generated executables will require gmp anyway, hence the dependency
@@ -32,15 +34,7 @@ class Mlton < Formula
       # Remove OS X droppings
       rm Dir["man/man1/._*"]
       mv "man", "share"
-
-      # Fix libgmp reference in mlton
-      file_name = Dir.pwd + "/bin/mlton"
-      text = File.read(file_name)
-      new_contents = text.gsub(/lm \/opt\/local/, "lm /usr/local")
-      File.open(file_name, "w") {|file| file.puts new_contents }
-
       prefix.install Dir['*']
-
     end
   end
 end
