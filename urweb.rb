@@ -1,8 +1,9 @@
 class Urweb < Formula
   desc "Ur/Web programming language"
   homepage "http://www.impredicative.com/ur/"
-  url "http://www.impredicative.com/ur/urweb-20160306.tgz"
-  sha256 "d70194109040c14d65bb4170a36dcae696070b2a6f374e6215e65caaddb6da44"
+  url "http://www.impredicative.com/ur/urweb-20160515.tgz"
+  sha256 "58c5cc0e96f0c311de468b4475e4bf595e6de5c04095136eed4148545e70442f"
+
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
